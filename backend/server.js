@@ -31,8 +31,6 @@ const allowedOrigins = [
   'http://localhost:5000',
   'http://localhost:3000'
 ];
-  'http://localhost:3000'
-];
 
 app.use(cors({
   origin: function (origin, callback) {
