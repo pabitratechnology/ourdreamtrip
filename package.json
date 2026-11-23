@@ -1,0 +1,14 @@
+{
+  "name": "ourdreamtrip-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node start-dev.js",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "build": "cd frontend && npm run build",
+    "start": "cd backend && npm start",
+    "install:all": "npm --prefix frontend install && npm --prefix backend install"
+  }
+}

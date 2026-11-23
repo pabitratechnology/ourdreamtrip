@@ -1,0 +1,10 @@
+# Robots.txt for Our Dream Trip - Holidays & Tours (https://ourdreamtrip.com)
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin/
+Disallow: /api/admin/
+Disallow: /api/auth/
+
+# XML Sitemap
+Sitemap: https://ourdreamtrip.com/sitemap.xml
