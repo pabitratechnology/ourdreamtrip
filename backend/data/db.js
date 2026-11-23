@@ -267,10 +267,50 @@ const initialContacts = [
   }
 ];
 
-// Load or initialize DB
+const dbFile = process.env.DB_PATH || path.join(__dirname, 'db.json');
+const backupFile = path.join(__dirname, 'db.backup.json');
+const backupDir = path.join(__dirname, 'backups');
+
+// Ensure backups directory exists
+if (!fs.existsSync(backupDir)) {
+  try { fs.mkdirSync(backupDir, { recursive: true }); } catch (_) {}
+}
+
+// Load or initialize DB with automatic resilience, backup recovery, and persistence
 export function getDb() {
-  if (!fs.existsSync(dbFile)) {
-    const initialDb = {
+  let db = null;
+
+  // 1. Try reading the primary database file
+  if (fs.existsSync(dbFile)) {
+    try {
+      const content = fs.readFileSync(dbFile, 'utf8');
+      if (content && content.trim().length > 10) {
+        db = JSON.parse(content);
+      }
+    } catch (err) {
+      console.error('⚠️ Warning: db.json was unreadable or corrupted:', err.message);
+    }
+  }
+
+  // 2. If primary dbFile was missing or corrupted, attempt recovery from db.backup.json
+  if (!db && fs.existsSync(backupFile)) {
+    try {
+      console.log('🔄 Attempting recovery from db.backup.json...');
+      const backupContent = fs.readFileSync(backupFile, 'utf8');
+      if (backupContent && backupContent.trim().length > 10) {
+        db = JSON.parse(backupContent);
+        // Resave restored content to primary file
+        fs.writeFileSync(dbFile, JSON.stringify(db, null, 2), 'utf8');
+        console.log('✅ Successfully recovered database from backup!');
+      }
+    } catch (bErr) {
+      console.error('Failed to recover from backup:', bErr.message);
+    }
+  }
+
+  // 3. Fallback to initial seed if no database exists anywhere
+  if (!db) {
+    db = {
       bookings: initialBookings,
       blogs: initialBlogs,
       gallery: initialGallery,
@@ -285,21 +325,54 @@ export function getDb() {
         role: 'superadmin'
       }
     };
-    fs.writeFileSync(dbFile, JSON.stringify(initialDb, null, 2), 'utf8');
-    return initialDb;
+    try {
+      fs.writeFileSync(dbFile, JSON.stringify(db, null, 2), 'utf8');
+      fs.writeFileSync(backupFile, JSON.stringify(db, null, 2), 'utf8');
+    } catch (wErr) {
+      console.error('Error writing initial db:', wErr);
+    }
+    return db;
   }
-  try {
-    const content = fs.readFileSync(dbFile, 'utf8');
-    return JSON.parse(content);
-  } catch (err) {
-    console.error('Error reading db.json, returning fallback:', err);
-    return { bookings: [], blogs: [], gallery: [], contacts: [], admin: {} };
+
+  // 4. Ensure all collections exist
+  if (!Array.isArray(db.bookings)) db.bookings = [];
+  if (!Array.isArray(db.blogs)) db.blogs = [];
+  if (!Array.isArray(db.gallery)) db.gallery = [];
+  if (!Array.isArray(db.packages)) db.packages = [];
+  if (!Array.isArray(db.contacts)) db.contacts = [];
+  if (!db.admin) {
+    db.admin = {
+      id: 'admin-1',
+      username: process.env.ADMIN_USER || 'odt_manager',
+      email: 'ourdreamtrip1@gmail.com',
+      passwordHash: process.env.ADMIN_PASS || 'Odishatrip@2026#Secure',
+      name: 'Our Dream Trip Administrator',
+      role: 'superadmin'
+    };
   }
+
+  return db;
 }
 
+// Save DB with dual redundancy: primary file + rolling backup + daily snapshot
 export function saveDb(data) {
   try {
-    fs.writeFileSync(dbFile, JSON.stringify(data, null, 2), 'utf8');
+    const serialized = JSON.stringify(data, null, 2);
+    // Write primary file
+    fs.writeFileSync(dbFile, serialized, 'utf8');
+
+    // Dual redundancy: update local backup
+    fs.writeFileSync(backupFile, serialized, 'utf8');
+
+    // Daily snapshot (once per day)
+    try {
+      const today = new Date().toISOString().split('T')[0];
+      const dailyBackupPath = path.join(backupDir, `db-${today}.json`);
+      if (!fs.existsSync(dailyBackupPath)) {
+        fs.writeFileSync(dailyBackupPath, serialized, 'utf8');
+      }
+    } catch (_) {}
+
     return true;
   } catch (err) {
     console.error('Error saving db.json:', err);

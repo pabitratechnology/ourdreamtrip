@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import path from 'path';
+import fs from 'fs';
 import { fileURLToPath } from 'url';
 
 import bookingsRouter from './routes/bookings.js';
@@ -19,13 +20,45 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Middleware
-app.use(cors());
+// Production Domain & CORS Configuration
+const allowedOrigins = [
+  'https://www.ourdreamtrip.com',
+  'https://ourdreamtrip.com',
+  'http://www.ourdreamtrip.com',
+  'http://ourdreamtrip.com',
+  'http://localhost:5173',
+  'http://localhost:5000',
+  'http://localhost:3000'
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) !== -1 || origin.endsWith('.ourdreamtrip.com')) {
+      return callback(null, true);
+    }
+    if (origin.startsWith('http://localhost:')) {
+      return callback(null, true);
+    }
+    return callback(null, true);
+  },
+  credentials: true
+}));
+
 app.use(express.json({ limit: '20mb' }));
 app.use(express.urlencoded({ extended: true, limit: '20mb' }));
 
 // Static serving for uploaded images
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+// Canonical Host Redirect (redirect ourdreamtrip.com to www.ourdreamtrip.com in production)
+app.use((req, res, next) => {
+  const host = req.headers.host;
+  if (host === 'ourdreamtrip.com') {
+    return res.redirect(301, `https://www.ourdreamtrip.com${req.url}`);
+  }
+  next();
+});
 
 // Request Logger
 app.use((req, res, next) => {
@@ -37,7 +70,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// Initialize Database on startup
+// Initialize Database on startup with backup verification
 getDb();
 
 // API Routes
@@ -54,6 +87,7 @@ app.get('/api/health', (req, res) => {
   res.json({
     status: 'online',
     service: 'Our Dream Trip Backend API',
+    domain: 'https://www.ourdreamtrip.com',
     time: new Date().toISOString()
   });
 });
@@ -64,6 +98,18 @@ app.get('/robots.txt', (req, res) => res.sendFile(path.join(frontendPublic, 'rob
 app.get('/sitemap.xml', (req, res) => res.sendFile(path.join(frontendPublic, 'sitemap.xml')));
 app.get('/sitemap.html', (req, res) => res.sendFile(path.join(frontendPublic, 'sitemap.html')));
 
+// Production Frontend Static File Serving (Single Deploy Mode)
+const frontendDist = path.join(__dirname, '../frontend/dist');
+if (fs.existsSync(frontendDist)) {
+  app.use(express.static(frontendDist));
+  app.get('*', (req, res, next) => {
+    if (req.originalUrl.startsWith('/api') || req.originalUrl.startsWith('/uploads')) {
+      return next();
+    }
+    res.sendFile(path.join(frontendDist, 'index.html'));
+  });
+}
+
 // 404 handler for API routes
 app.use('/api/*', (req, res) => {
   res.status(404).json({ error: 'API endpoint not found' });
@@ -73,6 +119,7 @@ app.use('/api/*', (req, res) => {
 app.listen(PORT, () => {
   console.log('====================================================');
   console.log(`🚀 Our Dream Trip API Backend running on http://localhost:${PORT}`);
+  console.log(`🌐 Configured for production domain: https://www.ourdreamtrip.com`);
   console.log(`📨 Email notifications configured for: ${process.env.ADMIN_NOTIFICATION_EMAIL || 'ourdreamtrip1@gmail.com'}`);
   console.log(`🔒 Admin endpoints active on /api/admin`);
   console.log('====================================================');

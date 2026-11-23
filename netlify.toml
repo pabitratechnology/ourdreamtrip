@@ -1,6 +1,13 @@
 [build]
+  base = "frontend"
   command = "npm run build"
   publish = "dist"
+
+[[redirects]]
+  from = "https://ourdreamtrip.com/*"
+  to = "https://www.ourdreamtrip.com/:splat"
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/*"
