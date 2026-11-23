@@ -16,8 +16,8 @@ import {
   FaTimes,
   FaSearchPlus
 } from 'react-icons/fa';
-import {cars,CONTACT,packages} from '../data/packages.js';
-import {PageHero,Btn,Img,Reveal,useTitle} from '../components/common.jsx';
+import { cars, CONTACT, packages } from '../data/packages.js';
+import { PageHero, Btn, Img, Reveal, useTitle } from '../components/common.jsx';
 
 export const AboutUs = () => {
   useTitle('About Us | Our Dream Trip - ourdreamtrip.com');
@@ -43,21 +43,21 @@ export const AboutUs = () => {
 
             <div className="about-core-values">
               <div className="value-item">
-                <FaHeart className="val-icon"/>
+                <FaHeart className="val-icon" />
                 <div>
                   <strong>Authentic Hospitality</strong>
                   <small>True Odia warmth, treating every guest as family (Atithi Devo Bhava).</small>
                 </div>
               </div>
               <div className="value-item">
-                <FaShieldAlt className="val-icon"/>
+                <FaShieldAlt className="val-icon" />
                 <div>
                   <strong>Guest Safety First</strong>
                   <small>Rigorous vehicle safety checks, verified drivers, and round-the-clock monitoring.</small>
                 </div>
               </div>
               <div className="value-item">
-                <FaAward className="val-icon"/>
+                <FaAward className="val-icon" />
                 <div>
                   <strong>Zero Hidden Costs</strong>
                   <small>Transparent pricing including all parking, tolls, taxes, and driver allowances.</small>
@@ -111,17 +111,17 @@ export const AboutUs = () => {
 
           <div className="grid3 guide-perks-grid">
             <div className="guide-perk-item">
-              <FaCheckCircle className="chk-icon"/>
+              <FaCheckCircle className="chk-icon" />
               <h4>Police Verified &amp; Commercial Licensed</h4>
               <p>Every driver undergoes strict background verification and holds authorized tourist commercial badges.</p>
             </div>
             <div className="guide-perk-item">
-              <FaCheckCircle className="chk-icon"/>
+              <FaCheckCircle className="chk-icon" />
               <h4>Multilingual &amp; Courteous</h4>
               <p>Fluent in Odia, Hindi, and English with courteous behavior and family-friendly manners.</p>
             </div>
             <div className="guide-perk-item">
-              <FaCheckCircle className="chk-icon"/>
+              <FaCheckCircle className="chk-icon" />
               <h4>Deep Local Route &amp; Temple Knowledge</h4>
               <p>Expertise in shortcut scenic bypasses, temple timings, authentic food stops, and local handicraft emporiums.</p>
             </div>
@@ -152,10 +152,10 @@ export const CarRental = () => {
           </div>
           <div className="rental-action-btns">
             <a href={`https://wa.me/${CONTACT.tel.slice(1)}?text=Hello,%20I%20need%20a%20car%20rental%20enquiry.`} className="btn btn-wa">
-              <FaWhatsapp/> Instant Fare on WhatsApp
+              <FaWhatsapp /> Instant Fare on WhatsApp
             </a>
             <a href={`tel:${CONTACT.tel}`} className="btn btn-navy-outline">
-              <FaPhoneAlt/> Call Dispatch
+              <FaPhoneAlt /> Call Dispatch
             </a>
           </div>
         </div>
@@ -165,7 +165,7 @@ export const CarRental = () => {
           {cars.map(c => (
             <Reveal key={c.id} className="car-detailed-card glass-card">
               <Link to={`/car-rental/${c.slug || c.id}`} className="car-img-wrapper">
-                <Img src={c.img} alt={c.n}/>
+                <Img src={c.img} alt={c.n} />
                 <span className="car-cat-tag">{c.cat}</span>
               </Link>
 
@@ -179,15 +179,15 @@ export const CarRental = () => {
 
                 <div className="car-features-table">
                   <div className="feat-row">
-                    <span><FaUsers className="feat-ico"/> Seating Capacity:</span>
+                    <span><FaUsers className="feat-ico" /> Seating Capacity:</span>
                     <strong>{c.s}</strong>
                   </div>
                   <div className="feat-row">
-                    <span><FaSuitcase className="feat-ico"/> Luggage Space:</span>
+                    <span><FaSuitcase className="feat-ico" /> Luggage Space:</span>
                     <strong>{c.luggage}</strong>
                   </div>
                   <div className="feat-row">
-                    <span><FaSnowflake className="feat-ico"/> Air Conditioning:</span>
+                    <span><FaSnowflake className="feat-ico" /> Air Conditioning:</span>
                     <strong>{c.ac}</strong>
                   </div>
                 </div>
@@ -225,14 +225,14 @@ export const CarRental = () => {
           <h3>Car Rental Terms &amp; Conditions</h3>
           <div className="grid2 terms-col-grid">
             <ul>
-              <li><FaCheckCircle className="chk-icon"/> Rates include vehicle, chauffeur allowances, and fuel.</li>
-              <li><FaCheckCircle className="chk-icon"/> Toll taxes, state border permits, and parking charges are billed at actuals.</li>
-              <li><FaCheckCircle className="chk-icon"/> Minimum outstation billing: 250 km per calendar day.</li>
+              <li><FaCheckCircle className="chk-icon" /> Rates include vehicle, chauffeur allowances, and fuel.</li>
+              <li><FaCheckCircle className="chk-icon" /> Toll taxes, state border permits, and parking charges are billed at actuals.</li>
+              <li><FaCheckCircle className="chk-icon" /> Minimum outstation billing: 250 km per calendar day.</li>
             </ul>
             <ul>
-              <li><FaCheckCircle className="chk-icon"/> 24x7 breakdown replacement guarantee with immediate substitute car.</li>
-              <li><FaCheckCircle className="chk-icon"/> Chauffeur night allowance (applicable between 10:00 PM and 6:00 AM): ₹300/night.</li>
-              <li><FaCheckCircle className="chk-icon"/> Cleanliness guarantee: every vehicle is washed &amp; sanitized before assignment.</li>
+              <li><FaCheckCircle className="chk-icon" /> 24x7 breakdown replacement guarantee with immediate substitute car.</li>
+              <li><FaCheckCircle className="chk-icon" /> Chauffeur night allowance (applicable between 10:00 PM and 6:00 AM): ₹300/night.</li>
+              <li><FaCheckCircle className="chk-icon" /> Cleanliness guarantee: every vehicle is washed &amp; sanitized before assignment.</li>
             </ul>
           </div>
         </div>
@@ -242,18 +242,18 @@ export const CarRental = () => {
 };
 
 const galleryItems = [
-  {id:1, title:'Lord Jagannath Temple Chariot, Puri', tag:'Spiritual', img:'https://images.unsplash.com/photo-1598890777032-bde835ba27c2?auto=format&fit=crop&w=800&q=80'},
-  {id:2, title:'UNESCO Sun Temple Wheel, Konark', tag:'Heritage', img:'https://images.unsplash.com/photo-1627916607164-7b20241db935?auto=format&fit=crop&w=800&q=80'},
-  {id:3, title:'Chilika Lake Irrawaddy Dolphin Waters', tag:'Lakes', img:'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80'},
-  {id:4, title:'Daringbadi Pine Forest & Misty Valley', tag:'Hills', img:'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80'},
-  {id:5, title:'Similipal Tiger Reserve & Waterfall Safari', tag:'Wildlife', img:'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=800&q=80'},
-  {id:6, title:'Bhitarkanika Mangroves & River Creeks', tag:'Wildlife', img:'https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=800&q=80'},
-  {id:7, title:'Gopalpur-on-Sea Golden Beach Stroll', tag:'Lakes', img:'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=800&q=80'},
-  {id:8, title:'Khandagiri & Udayagiri Ancient Caves', tag:'Heritage', img:'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80'},
-  {id:9, title:'Puri Golden Sand Beach Blue Flag Coast', tag:'Lakes', img:'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80'},
-  {id:10, title:'Taj Mahal Wonder of the World, Agra', tag:'India', img:'https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=800&q=80'},
-  {id:11, title:'Shikara Cruise on Dal Lake, Kashmir', tag:'India', img:'https://images.unsplash.com/photo-1595815771614-ade9d652a65d?auto=format&fit=crop&w=800&q=80'},
-  {id:12, title:'Kerala Backwaters Luxury Houseboat', tag:'India', img:'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=800&q=80'}
+  { id: 1, title: 'Lord Jagannath Temple Chariot, Puri', tag: 'Spiritual', img: 'https://images.unsplash.com/photo-1598890777032-bde835ba27c2?auto=format&fit=crop&w=800&q=80' },
+  { id: 2, title: 'UNESCO Sun Temple Wheel, Konark', tag: 'Heritage', img: 'https://images.unsplash.com/photo-1627916607164-7b20241db935?auto=format&fit=crop&w=800&q=80' },
+  { id: 3, title: 'Chilika Lake Irrawaddy Dolphin Waters', tag: 'Lakes', img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80' },
+  { id: 4, title: 'Daringbadi Pine Forest & Misty Valley', tag: 'Hills', img: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80' },
+  { id: 5, title: 'Similipal Tiger Reserve & Waterfall Safari', tag: 'Wildlife', img: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=800&q=80' },
+  { id: 6, title: 'Bhitarkanika Mangroves & River Creeks', tag: 'Wildlife', img: 'https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=800&q=80' },
+  { id: 7, title: 'Gopalpur-on-Sea Golden Beach Stroll', tag: 'Lakes', img: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=800&q=80' },
+  { id: 8, title: 'Khandagiri & Udayagiri Ancient Caves', tag: 'Heritage', img: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80' },
+  { id: 9, title: 'Puri Golden Sand Beach Blue Flag Coast', tag: 'Lakes', img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80' },
+  { id: 10, title: 'Taj Mahal Wonder of the World, Agra', tag: 'India', img: 'https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=800&q=80' },
+  { id: 11, title: 'Shikara Cruise on Dal Lake, Kashmir', tag: 'India', img: 'https://images.unsplash.com/photo-1595815771614-ade9d652a65d?auto=format&fit=crop&w=800&q=80' },
+  { id: 12, title: 'Kerala Backwaters Luxury Houseboat', tag: 'India', img: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=800&q=80' }
 ];
 
 export const Gallery = () => {
@@ -324,7 +324,7 @@ export const Gallery = () => {
                   }}
                 />
                 <div className="gallery-overlay">
-                  <FaSearchPlus className="zoom-icon"/>
+                  <FaSearchPlus className="zoom-icon" />
                   <span>{item.title}</span>
                 </div>
               </div>
@@ -337,7 +337,7 @@ export const Gallery = () => {
           <div className="lightbox-backdrop" onClick={() => setLightboxImg(null)}>
             <div className="lightbox-content" onClick={e => e.stopPropagation()}>
               <button className="lightbox-close" onClick={() => setLightboxImg(null)}>
-                <FaTimes/>
+                <FaTimes />
               </button>
               <img
                 src={lightboxImg.img}
@@ -417,19 +417,19 @@ const policyContents = {
   }
 };
 
-export const Policy = ({k}) => {
+export const Policy = ({ k }) => {
   const data = policyContents[k] || policyContents.privacy;
   useTitle(data.title);
 
   return (
     <div className="policy-page">
-      <PageHero title={data.title} sub={`Last Updated: ${data.lastUpdated}`}/>
+      <PageHero title={data.title} sub={`Last Updated: ${data.lastUpdated}`} />
       <section className="container section-margin">
         <div className="glass-card policy-body-card">
           {data.sections.map((s, i) => (
             <div key={i} className="policy-clause">
               <h3>{s.h}</h3>
-              <p style={{whiteSpace:'pre-line'}}>{s.p}</p>
+              <p style={{ whiteSpace: 'pre-line' }}>{s.p}</p>
             </div>
           ))}
           <div className="policy-footer-note">
@@ -532,11 +532,11 @@ export const HtmlSitemap = () => {
 export const NotFound = () => {
   useTitle('404 Page Not Found');
   return (
-    <section className="container center" style={{padding:'6rem 1rem'}}>
-      <div className="glass-card not-found-card" style={{maxWidth:'600px', margin:'0 auto', padding:'3rem 2rem'}}>
-        <h1 style={{fontSize:'5rem', color:'var(--navy)', lineHeight:1}}>404</h1>
+    <section className="container center" style={{ padding: '6rem 1rem' }}>
+      <div className="glass-card not-found-card" style={{ maxWidth: '600px', margin: '0 auto', padding: '3rem 2rem' }}>
+        <h1 style={{ fontSize: '5rem', color: 'var(--navy)', lineHeight: 1 }}>404</h1>
         <h2>Oops! Page Not Found</h2>
-        <p style={{margin:'1rem 0 2rem'}}>The tour package or destination page you are looking for has been moved or does not exist.</p>
+        <p style={{ margin: '1rem 0 2rem' }}>The tour package or destination page you are looking for has been moved or does not exist.</p>
         <Btn to="/" variant="yellow">Back to Home Page</Btn>
       </div>
     </section>

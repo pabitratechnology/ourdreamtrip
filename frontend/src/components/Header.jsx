@@ -32,13 +32,14 @@ import {
 import {CONTACT} from '../data/packages.js';
 
 export const Socials = () => (
-  <div className="socials">
+  <div className="topbar-social-icons">
     <a
       href={CONTACT.facebook || 'https://www.facebook.com/share/1A2pnj6LXS/'}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Facebook"
-      title="Facebook"
+      className="social-btn social-fb"
+      title="Follow on Facebook"
     >
       <FaFacebookF/>
     </a>
@@ -47,7 +48,8 @@ export const Socials = () => (
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Instagram"
-      title="Instagram"
+      className="social-btn social-insta"
+      title="Follow on Instagram"
     >
       <FaInstagram/>
     </a>
@@ -56,7 +58,8 @@ export const Socials = () => (
       target="_blank"
       rel="noopener noreferrer"
       aria-label="WhatsApp"
-      title="WhatsApp"
+      className="social-btn social-wa"
+      title="Chat on WhatsApp"
     >
       <FaWhatsapp/>
     </a>
@@ -65,7 +68,8 @@ export const Socials = () => (
       target="_blank"
       rel="noopener noreferrer"
       aria-label="YouTube"
-      title="YouTube"
+      className="social-btn social-yt"
+      title="Subscribe on YouTube"
     >
       <FaYoutube/>
     </a>
@@ -74,18 +78,22 @@ export const Socials = () => (
 
 export const TopContactBar = () => (
   <div className="topbar">
-    <a href={`tel:${CONTACT.tel}`} className="topbar-item topbar-phone">
-      <FaPhoneAlt/> <span>{CONTACT.phone}</span>
-    </a>
-    <a href="https://wa.me/917790008877" target="_blank" rel="noreferrer" className="wa-link topbar-item topbar-wa">
-      <FaWhatsapp/> <span>Chat on WhatsApp</span>
-    </a>
-    <a href={`mailto:${CONTACT.email}`} className="topbar-item topbar-email">
-      <FaEnvelope/> <span>{CONTACT.email}</span>
-    </a>
-    <span className="follow topbar-socials">
-      Follow Us: <Socials/>
-    </span>
+    <div className="topbar-left-group">
+      <a href={`tel:${CONTACT.tel}`} className="topbar-item topbar-phone">
+        <FaPhoneAlt/> <span>{CONTACT.phone}</span>
+      </a>
+      <a href="https://wa.me/917790008877" target="_blank" rel="noreferrer" className="wa-link topbar-item topbar-wa">
+        <FaWhatsapp/> <span>Chat on WhatsApp</span>
+      </a>
+      <a href={`mailto:${CONTACT.email}`} className="topbar-item topbar-email">
+        <FaEnvelope/> <span>{CONTACT.email}</span>
+      </a>
+    </div>
+
+    <div className="topbar-right-group">
+      <span className="follow-label">Follow Us:</span>
+      <Socials/>
+    </div>
   </div>
 );
 
