@@ -14,11 +14,11 @@ import adminRouter from './routes/admin.js';
 import uploadRouter from './routes/upload.js';
 import { getDb } from './data/db.js';
 
-dotenv.config();
-
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+dotenv.config({ path: path.join(__dirname, '.env') });
+
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5005;
 
 // Production Domain & CORS Configuration
 const allowedOrigins = [
@@ -27,7 +27,10 @@ const allowedOrigins = [
   'http://www.ourdreamtrip.com',
   'http://ourdreamtrip.com',
   'http://localhost:5173',
+  'http://localhost:5005',
   'http://localhost:5000',
+  'http://localhost:3000'
+];
   'http://localhost:3000'
 ];
 

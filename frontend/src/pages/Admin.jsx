@@ -137,7 +137,7 @@ export default function Admin() {
         setLoginError(data.error || 'Invalid credentials. Access denied.');
       }
     } catch (err) {
-      setLoginError('Could not reach backend API server. Please verify the server is running on port 5000.');
+      setLoginError('Could not reach backend API server. Please verify the backend service is running.');
     } finally {
       setLoginLoading(false);
     }
