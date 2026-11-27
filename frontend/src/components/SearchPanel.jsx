@@ -150,8 +150,8 @@ export default function SearchPanel({ initial = {} }) {
         </button>
       </div>
 
-      {/* ================= DEDICATED MOBILE SEARCH CARD (IMAGE 2 MATCH - ONLY ON MOBILE) ================= */}
-      <form className="mobile-search-card" onSubmit={handleFindTours}>
+      {/* ================= DEDICATED MOBILE ENQUIRY CARD ================= */}
+      <form className="mobile-search-card" onSubmit={handleSendEnquiry}>
         <div className="mobile-search-fields-grid">
           <label className="mob-field-pill">
             <FaMapMarkerAlt className="mob-field-icon text-red"/>
@@ -213,10 +213,44 @@ export default function SearchPanel({ initial = {} }) {
           </label>
         </div>
 
-        <button type="submit" className="mobile-search-submit-btn">
-          <FaSearch className="mob-btn-search-icon"/>
-          <span>Search Packages</span>
+        {/* WhatsApp / Phone Input (Direct Dispatch to Mail) */}
+        <div className="mob-phone-field-wrap">
+          <label className="mob-field-pill mob-phone-pill">
+            <FaPhoneAlt className="mob-field-icon text-gold"/>
+            <input
+              type="tel"
+              value={guestPhone}
+              onChange={e => setGuestPhone(e.target.value)}
+              placeholder="Enter WhatsApp / Mobile Number"
+              className="mob-clean-input"
+            />
+          </label>
+        </div>
+
+        <button
+          type="submit"
+          className="mobile-search-submit-btn mobile-enquiry-submit-btn"
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? (
+            <>
+              <FaSpinner className="spin"/>
+              <span>Sending Enquiry...</span>
+            </>
+          ) : (
+            <>
+              <FaPaperPlane className="mob-btn-search-icon"/>
+              <span>Send Enquiry</span>
+            </>
+          )}
         </button>
+
+        {/* Micro Trust Strip below button */}
+        <div className="mobile-trust-strip">
+          <span><FaShieldAlt className="text-blue"/> 100% Free Custom Itinerary</span>
+          <span>•</span>
+          <span><FaCheckCircle className="text-green"/> 15-Min Response</span>
+        </div>
       </form>
 
       {/* Main Search / Enquiry Console Form (Desktop) */}

@@ -275,7 +275,7 @@ button, input, select, textarea {
 .header {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   background: #ffffff;
   box-shadow: 0 2px 16px rgba(6, 36, 95, 0.08);
 }
@@ -12238,46 +12238,18 @@ button, input, select, textarea {
 /* Mobile & Tablet Specific Luxury Polish */
 @media (max-width: 768px) {
   .topbar {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 0.3rem !important;
-    font-size: 0.76rem !important;
-    padding: 0.4rem 0.5rem !important;
-    background: #021230 !important;
-  }
-  .topbar-left-group,
-  .topbar-right-group {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 0.65rem !important;
-    flex-wrap: wrap !important;
+    justify-content: center;
+    gap: 0.85rem;
+    font-size: 0.78rem;
+    padding: 0.35rem 0.5rem;
   }
   .topbar-email,
+  .topbar-socials {
+    display: none !important;
+  }
   .topbar-phone,
   .topbar-wa {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 0.3rem !important;
-    padding: 0.15rem 0.3rem !important;
-  }
-  .topbar-right-group .follow-label {
-    display: inline-block !important;
-    font-size: 0.75rem !important;
-    color: #93c5fd !important;
-    font-weight: 600 !important;
-  }
-  .topbar-social-icons {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 0.45rem !important;
-  }
-  .topbar-social-icons .social-btn {
-    width: 24px !important;
-    height: 24px !important;
-    font-size: 0.72rem !important;
+    padding: 0.2rem 0.4rem;
   }
 
   .page-hero-has-bg {
@@ -12730,50 +12702,7 @@ button, input, select, textarea {
 
 /* Activated Exclusively on Mobile View */
 @media (max-width: 768px) {
-  /* 1. TOPBAR & NAVBAR ACTIONS ON MOBILE */
-  .nav-actions-wrap {
-    display: flex !important;
-    align-items: center !important;
-    gap: 0.45rem !important;
-  }
-
-  .burger-toggle-btn {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    background: #f1f5f9 !important;
-    border: 1px solid #cbd5e1 !important;
-    border-radius: 8px !important;
-    padding: 0.45rem 0.65rem !important;
-    font-size: 1.15rem !important;
-    color: #06245f !important;
-    cursor: pointer !important;
-  }
-
-  .btn-book-journey-nav {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 0.35rem !important;
-    padding: 0.45rem 0.8rem !important;
-    font-size: 0.8rem !important;
-    font-weight: 700 !important;
-    border-radius: 9999px !important;
-    background: #f59e0b !important;
-    color: #06245f !important;
-    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.35) !important;
-    text-decoration: none !important;
-    white-space: nowrap !important;
-  }
-
-  .btn-book-text-mobile {
-    display: inline !important;
-  }
-
-  .btn-book-text-desktop {
-    display: none !important;
-  }
-
-  /* 2. HERO BANNER ON MOBILE (CRYSTAL CLEAR PHOTOGRAPHY & VIBRANT TYPOGRAPHY) */
+  /* 1. HERO BANNER ON MOBILE (CRYSTAL CLEAR PHOTOGRAPHY & VIBRANT TYPOGRAPHY) */
   .hero {
     min-height: 480px !important;
     height: auto !important;
@@ -13022,28 +12951,48 @@ button, input, select, textarea {
   .mobile-search-submit-btn {
     width: 100% !important;
     border-radius: 9999px !important;
-    background: #031b4e !important;
+    background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%) !important;
     color: #ffffff !important;
-    font-size: 0.88rem !important;
-    font-weight: 700 !important;
-    padding: 0.62rem 0.85rem !important;
+    font-size: 0.92rem !important;
+    font-weight: 800 !important;
+    padding: 0.65rem 1rem !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 0.5rem !important;
+    gap: 0.55rem !important;
     border: none !important;
     cursor: pointer !important;
-    box-shadow: 0 4px 14px rgba(3, 27, 78, 0.35) !important;
+    box-shadow: 0 4px 15px rgba(234, 88, 12, 0.4) !important;
     transition: all 0.2s ease !important;
     box-sizing: border-box !important;
   }
 
   .mobile-search-submit-btn:hover {
-    background: #021230 !important;
+    background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%) !important;
+    transform: translateY(-1px) !important;
   }
 
   .mob-btn-search-icon {
-    font-size: 0.85rem !important;
+    font-size: 0.9rem !important;
+  }
+
+  .mob-phone-field-wrap {
+    margin-bottom: 0.55rem !important;
+  }
+
+  .mob-phone-pill {
+    padding: 0.42rem 0.5rem !important;
+  }
+
+  .mobile-trust-strip {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.45rem !important;
+    margin-top: 0.5rem !important;
+    font-size: 0.62rem !important;
+    font-weight: 600 !important;
+    color: #64748b !important;
   }
 }
 
