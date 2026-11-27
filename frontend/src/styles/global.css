@@ -38,6 +38,8 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -45,6 +47,8 @@ body {
   color: var(--text-dark);
   background-color: var(--bg-slate);
   overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
   line-height: 1.6;
 }
 
@@ -12919,14 +12923,18 @@ button, input, select, textarea {
     margin-top: 0 !important;
     position: relative !important;
     z-index: 10 !important;
-    padding: 0 0.75rem !important;
+    padding: 0 0.65rem !important;
     width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .search-panel-container {
     width: 100% !important;
     max-width: 100% !important;
+    box-sizing: border-box !important;
     padding: 0 !important;
+    overflow: hidden !important;
   }
 
   .search-tabs-header,
@@ -12938,69 +12946,75 @@ button, input, select, textarea {
   .mobile-search-card {
     display: block !important;
     background: #ffffff !important;
-    border-radius: 18px !important;
-    box-shadow: 0 10px 30px rgba(6, 36, 95, 0.16) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 24px rgba(6, 36, 95, 0.14) !important;
     border: 1px solid #e2e8f0 !important;
-    padding: 0.75rem 0.75rem 0.85rem !important;
+    padding: 0.6rem 0.55rem 0.75rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
   }
 
   .mobile-search-fields-grid {
     display: grid !important;
-    grid-template-columns: 1.15fr 0.95fr 0.9fr !important;
-    gap: 0.4rem !important;
-    margin-bottom: 0.65rem !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 0.3rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    margin-bottom: 0.55rem !important;
   }
 
   .mob-field-pill {
     display: flex !important;
     align-items: center !important;
-    gap: 0.3rem !important;
+    gap: 0.2rem !important;
     background: #ffffff !important;
     border: 1px solid #cbd5e1 !important;
-    border-radius: 12px !important;
-    padding: 0.35rem 0.45rem !important;
+    border-radius: 10px !important;
+    padding: 0.42rem 0.3rem !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
     position: relative !important;
-    min-height: 44px !important;
   }
 
   .mob-field-icon {
-    font-size: 0.85rem !important;
+    font-size: 0.75rem !important;
     flex-shrink: 0 !important;
   }
 
-  .mob-field-select-wrap {
-    display: flex !important;
-    flex-direction: column !important;
-    width: 100% !important;
-    overflow: hidden !important;
-  }
-
-  .mob-field-mini-label {
-    font-size: 0.58rem !important;
-    font-weight: 700 !important;
-    color: #64748b !important;
-    line-height: 1.1 !important;
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-  }
-
-  .mob-field-pill select,
-  .mob-field-pill input {
-    background: transparent !important;
+  .mob-clean-select,
+  .mob-clean-input {
     border: none !important;
-    font-size: 0.72rem !important;
+    background: transparent !important;
+    font-size: 0.68rem !important;
     font-weight: 700 !important;
     color: #06245f !important;
     width: 100% !important;
-    outline: none !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
     padding: 0 !important;
     margin: 0 !important;
+    outline: none !important;
     cursor: pointer !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    box-sizing: border-box !important;
+  }
+
+  .mob-clean-input::placeholder {
+    color: #64748b !important;
+    font-weight: 700 !important;
+    font-size: 0.68rem !important;
   }
 
   .mob-field-chevron {
-    font-size: 0.65rem !important;
+    font-size: 0.58rem !important;
     color: #94a3b8 !important;
     flex-shrink: 0 !important;
   }
@@ -13010,17 +13024,18 @@ button, input, select, textarea {
     border-radius: 9999px !important;
     background: #031b4e !important;
     color: #ffffff !important;
-    font-size: 0.92rem !important;
+    font-size: 0.88rem !important;
     font-weight: 700 !important;
-    padding: 0.65rem 1rem !important;
+    padding: 0.62rem 0.85rem !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 0.55rem !important;
+    gap: 0.5rem !important;
     border: none !important;
     cursor: pointer !important;
     box-shadow: 0 4px 14px rgba(3, 27, 78, 0.35) !important;
     transition: all 0.2s ease !important;
+    box-sizing: border-box !important;
   }
 
   .mobile-search-submit-btn:hover {
@@ -13028,7 +13043,7 @@ button, input, select, textarea {
   }
 
   .mob-btn-search-icon {
-    font-size: 0.9rem !important;
+    font-size: 0.85rem !important;
   }
 }
 

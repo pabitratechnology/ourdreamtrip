@@ -155,54 +155,60 @@ export default function SearchPanel({ initial = {} }) {
         <div className="mobile-search-fields-grid">
           <label className="mob-field-pill">
             <FaMapMarkerAlt className="mob-field-icon text-red"/>
-            <div className="mob-field-select-wrap">
-              <span className="mob-field-mini-label">Select Destination</span>
-              <select value={d} onChange={e => setD(e.target.value)} aria-label="Select Destination">
-                <option value="Puri, Konark & Bhubaneswar (Golden Triangle)">Puri · Konark · BBSR</option>
-                <option value="Daringbadi - Kashmir of Odisha">Daringbadi Hills</option>
-                <option value="Chilika Lake & Satapada Dolphin Cruise">Chilika Dolphins</option>
-                <option value="Bhitarkanika Mangrove & Wildlife">Bhitarkanika Safari</option>
-                <option value="Similipal Tiger Reserve & Waterfalls">Similipal Falls</option>
-                <option value="Koraput, Deomali & Duduma Canyon">Koraput Valley</option>
-                <option value="Kashmir Paradise: Srinagar & Gulmarg">Kashmir Valley</option>
-                <option value="Varanasi, Prayagraj & Ayodhya Ram Mandir">Ayodhya &amp; Kashi</option>
-                <option value="Royal Rajasthan: Jaipur, Jodhpur & Udaipur">Royal Rajasthan</option>
-                <option value="Kerala God's Own Country: Munnar & Alleppey">Kerala Backwaters</option>
-                {destinations.map(x => (
-                  <option key={x} value={x}>{x}</option>
-                ))}
-              </select>
-            </div>
+            <select
+              value={d}
+              onChange={e => setD(e.target.value)}
+              aria-label="Select Destination"
+              className="mob-clean-select"
+            >
+              <option value="" disabled>Destination</option>
+              <option value="Puri, Konark & Bhubaneswar (Golden Triangle)">Puri · Konark</option>
+              <option value="Daringbadi - Kashmir of Odisha">Daringbadi</option>
+              <option value="Chilika Lake & Satapada Dolphin Cruise">Chilika</option>
+              <option value="Bhitarkanika Mangrove & Wildlife">Bhitarkanika</option>
+              <option value="Similipal Tiger Reserve & Waterfalls">Similipal</option>
+              <option value="Koraput, Deomali & Duduma Canyon">Koraput</option>
+              <option value="Kashmir Paradise: Srinagar & Gulmarg">Kashmir</option>
+              <option value="Varanasi, Prayagraj & Ayodhya Ram Mandir">Ayodhya</option>
+              <option value="Royal Rajasthan: Jaipur, Jodhpur & Udaipur">Rajasthan</option>
+              <option value="Kerala God's Own Country: Munnar & Alleppey">Kerala</option>
+              {destinations.map(x => (
+                <option key={x} value={x}>{x}</option>
+              ))}
+            </select>
             <FaChevronDown className="mob-field-chevron"/>
           </label>
 
           <label className="mob-field-pill">
             <FaCalendarAlt className="mob-field-icon text-blue"/>
-            <div className="mob-field-select-wrap">
-              <span className="mob-field-mini-label">Travel Date</span>
-              <input
-                type="date"
-                value={dt}
-                onChange={e => setDt(e.target.value)}
-                aria-label="Travel Date"
-                min={new Date().toISOString().split('T')[0]}
-              />
-            </div>
+            <input
+              type="text"
+              value={dt}
+              placeholder="Travel Date"
+              onFocus={e => { e.target.type = 'date'; }}
+              onBlur={e => { if (!e.target.value) e.target.type = 'text'; }}
+              onChange={e => setDt(e.target.value)}
+              aria-label="Travel Date"
+              min={new Date().toISOString().split('T')[0]}
+              className="mob-clean-input"
+            />
             <FaChevronDown className="mob-field-chevron"/>
           </label>
 
           <label className="mob-field-pill">
             <FaUsers className="mob-field-icon text-purple"/>
-            <div className="mob-field-select-wrap">
-              <span className="mob-field-mini-label">No. of Travellers</span>
-              <select value={t} onChange={e => setT(e.target.value)} aria-label="No. of Travellers">
-                {[1, 2, 3, 4, 5, 6, 8, 10, 15, 20].map(n => (
-                  <option key={n} value={n}>
-                    {n} {n === 1 ? 'Guest' : 'Guests'}
-                  </option>
-                ))}
-              </select>
-            </div>
+            <select
+              value={t}
+              onChange={e => setT(e.target.value)}
+              aria-label="No. of Travellers"
+              className="mob-clean-select"
+            >
+              {[1, 2, 3, 4, 5, 6, 8, 10, 15, 20].map(n => (
+                <option key={n} value={n}>
+                  {n} {n === 1 ? 'Guest' : 'Guests'}
+                </option>
+              ))}
+            </select>
             <FaChevronDown className="mob-field-chevron"/>
           </label>
         </div>
