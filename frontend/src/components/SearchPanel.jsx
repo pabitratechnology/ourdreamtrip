@@ -16,7 +16,8 @@ import {
   FaShieldAlt,
   FaUser,
   FaEnvelope,
-  FaSpinner
+  FaSpinner,
+  FaChevronDown
 } from 'react-icons/fa';
 import { destinations, CONTACT } from '../data/packages.js';
 
