@@ -653,12 +653,6 @@ export default function Header() {
 
         {/* ================= ACTIONS ================= */}
         <div className="nav-actions-wrap">
-          <Link to="/book-your-trip" className="btn-book-journey-nav">
-            <FaCalendarCheck className="cal-btn-icon"/>
-            <span className="btn-book-text-desktop">Book Your Trip</span>
-            <span className="btn-book-text-mobile">Book Trip</span>
-          </Link>
-
           <button
             className="burger-toggle-btn"
             aria-label="Toggle navigation menu"
@@ -667,6 +661,12 @@ export default function Header() {
           >
             {mobileOpen ? <FaTimes/> : <FaBars/>}
           </button>
+
+          <Link to="/book-your-trip" className="btn-book-journey-nav">
+            <FaCalendarCheck className="cal-btn-icon"/>
+            <span className="btn-book-text-desktop">Book Your Trip</span>
+            <span className="btn-book-text-mobile">Book Your Trip</span>
+          </Link>
         </div>
       </div>
 

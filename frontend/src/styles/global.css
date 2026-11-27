@@ -12234,18 +12234,46 @@ button, input, select, textarea {
 /* Mobile & Tablet Specific Luxury Polish */
 @media (max-width: 768px) {
   .topbar {
-    justify-content: center;
-    gap: 0.85rem;
-    font-size: 0.78rem;
-    padding: 0.35rem 0.5rem;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.3rem !important;
+    font-size: 0.76rem !important;
+    padding: 0.4rem 0.5rem !important;
+    background: #021230 !important;
+  }
+  .topbar-left-group,
+  .topbar-right-group {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.65rem !important;
+    flex-wrap: wrap !important;
   }
   .topbar-email,
-  .topbar-socials {
-    display: none !important;
-  }
   .topbar-phone,
   .topbar-wa {
-    padding: 0.2rem 0.4rem;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.3rem !important;
+    padding: 0.15rem 0.3rem !important;
+  }
+  .topbar-right-group .follow-label {
+    display: inline-block !important;
+    font-size: 0.75rem !important;
+    color: #93c5fd !important;
+    font-weight: 600 !important;
+  }
+  .topbar-social-icons {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.45rem !important;
+  }
+  .topbar-social-icons .social-btn {
+    width: 24px !important;
+    height: 24px !important;
+    font-size: 0.72rem !important;
   }
 
   .page-hero-has-bg {
@@ -12674,6 +12702,661 @@ button, input, select, textarea {
     overflow-y: auto !important;
     padding: 1.25rem !important;
     width: 95% !important;
+  }
+}
+
+/* ==========================================================================
+   EXCLUSIVE MOBILE HOMEPAGE & HERO DESIGN SYSTEM (ONLY ON MOBILE <= 768px)
+   ========================================================================== */
+
+/* Hidden on Desktop View */
+.home-mobile-only-flow,
+.mobile-search-card,
+.mobile-hero-touch-link,
+.mobile-fixed-bottom-bar {
+  display: none !important;
+}
+
+/* Activated Exclusively on Mobile View */
+@media (max-width: 768px) {
+  /* ================= 1. HEADER & NAVBAR ON MOBILE ================= */
+  .nav-actions-wrap {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.45rem !important;
+  }
+
+  .burger-toggle-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #f1f5f9 !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 8px !important;
+    padding: 0.45rem 0.65rem !important;
+    font-size: 1.15rem !important;
+    color: #06245f !important;
+    cursor: pointer !important;
+  }
+
+  .btn-book-journey-nav {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.35rem !important;
+    padding: 0.45rem 0.8rem !important;
+    font-size: 0.8rem !important;
+    font-weight: 700 !important;
+    border-radius: 9999px !important;
+    background: #f59e0b !important;
+    color: #06245f !important;
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.35) !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+  }
+
+  .btn-book-journey-nav .cal-btn-icon {
+    font-size: 0.85rem !important;
+  }
+
+  .btn-book-text-mobile {
+    display: inline !important;
+  }
+
+  .btn-book-text-desktop {
+    display: none !important;
+  }
+
+  /* ================= 2. HERO BANNER ON MOBILE (CRYSTAL CLEAR PHOTOGRAPHY) ================= */
+  .hero {
+    min-height: auto !important;
+    height: auto !important;
+    aspect-ratio: 2048 / 920 !important;
+    max-height: 270px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    background: #e0f2fe !important;
+    position: relative !important;
+  }
+
+  .hero-slideshow-viewport {
+    position: absolute !important;
+    inset: 0 !important;
+    overflow: hidden !important;
+    border-radius: 0 !important;
+  }
+
+  .hero-slide-bg {
+    background-size: 100% 100% !important;
+    background-position: center top !important;
+    filter: brightness(1.02) contrast(1.05) !important;
+    will-change: transform, opacity !important;
+  }
+
+  /* Completely remove foggy white scrim overlay on mobile so images are 100% sharp & vivid */
+  .hero-scrim-overlay {
+    display: none !important;
+  }
+
+  .hero-ambient-glow,
+  .hero-arrow-btn,
+  .hero-in,
+  .hero-text,
+  .hero-top-capsule-row,
+  .hero-dock-wrap,
+  .hero-landscape-dock {
+    display: none !important;
+  }
+
+  /* Direct interactive touch button over "Explore Our Packages ->" */
+  .mobile-hero-touch-link {
+    display: block !important;
+    position: absolute !important;
+    top: 67% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 225px !important;
+    height: 38px !important;
+    border-radius: 9999px !important;
+    z-index: 10 !important;
+    cursor: pointer !important;
+    background: transparent !important;
+  }
+
+  /* ================= 3. COMPACT FLOATING SEARCH CARD ON MOBILE ================= */
+  .hero-search-wrap {
+    margin-top: -24px !important;
+    position: relative !important;
+    z-index: 20 !important;
+    padding: 0 0.85rem !important;
+  }
+
+  .search-panel-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .search-tabs-header,
+  .search-advanced.search-console-modern,
+  .search-trust-microbar {
+    display: none !important;
+  }
+
+  .mobile-search-card {
+    display: block !important;
+    background: #ffffff !important;
+    border-radius: 18px !important;
+    box-shadow: 0 10px 30px rgba(6, 36, 95, 0.16) !important;
+    border: 1px solid #e2e8f0 !important;
+    padding: 0.75rem 0.75rem 0.85rem !important;
+  }
+
+  .mobile-search-fields-grid {
+    display: grid !important;
+    grid-template-columns: 1.15fr 0.95fr 0.9fr !important;
+    gap: 0.4rem !important;
+    margin-bottom: 0.65rem !important;
+  }
+
+  .mob-field-pill {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.3rem !important;
+    background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 12px !important;
+    padding: 0.35rem 0.45rem !important;
+    position: relative !important;
+    min-height: 44px !important;
+  }
+
+  .mob-field-icon {
+    font-size: 0.85rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  .mob-field-select-wrap {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .mob-field-mini-label {
+    font-size: 0.58rem !important;
+    font-weight: 700 !important;
+    color: #64748b !important;
+    line-height: 1.1 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .mob-field-pill select,
+  .mob-field-pill input {
+    background: transparent !important;
+    border: none !important;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    color: #06245f !important;
+    width: 100% !important;
+    outline: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    cursor: pointer !important;
+  }
+
+  .mob-field-chevron {
+    font-size: 0.65rem !important;
+    color: #94a3b8 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .mobile-search-submit-btn {
+    width: 100% !important;
+    border-radius: 9999px !important;
+    background: #031b4e !important;
+    color: #ffffff !important;
+    font-size: 0.92rem !important;
+    font-weight: 700 !important;
+    padding: 0.65rem 1rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.55rem !important;
+    border: none !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 14px rgba(3, 27, 78, 0.35) !important;
+    transition: all 0.2s ease !important;
+  }
+
+  .mobile-search-submit-btn:hover {
+    background: #021230 !important;
+  }
+
+  .mob-btn-search-icon {
+    font-size: 0.9rem !important;
+  }
+
+  /* ================= 4. MOBILE HOMEPAGE FLOW (IMAGE 1 EXACT MATCH) ================= */
+  .home-mobile-only-flow {
+    display: block !important;
+    margin-top: 1.25rem !important;
+    padding: 0 0.5rem !important;
+  }
+
+  /* 3 Action Cards */
+  .mob-action-cards-section {
+    margin-bottom: 1.25rem !important;
+    padding: 0 !important;
+  }
+
+  .mob-action-cards-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.45rem !important;
+  }
+
+  .mob-action-card {
+    display: flex !important;
+    flex-direction: column !important;
+    background: #06245f !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    text-decoration: none !important;
+    box-shadow: 0 4px 14px rgba(6, 36, 95, 0.16) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    transition: transform 0.2s ease !important;
+  }
+
+  .mob-action-card-img-wrap {
+    height: 76px !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    position: relative !important;
+  }
+
+  .mob-action-card-img-wrap img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+
+  .mob-action-card-body {
+    padding: 0.5rem 0.35rem 0.6rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    flex: 1 !important;
+    text-align: center !important;
+    gap: 0.3rem !important;
+  }
+
+  .mob-action-card-body h4 {
+    font-size: 0.72rem !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    margin: 0 !important;
+    line-height: 1.2 !important;
+  }
+
+  .mob-action-card-body p {
+    font-size: 0.56rem !important;
+    color: #cbd5e1 !important;
+    margin: 0 !important;
+    line-height: 1.2 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+
+  .mob-action-btn-pill {
+    display: inline-block !important;
+    background: #ffb300 !important;
+    color: #06245f !important;
+    font-size: 0.62rem !important;
+    font-weight: 800 !important;
+    padding: 0.28rem 0.45rem !important;
+    border-radius: 9999px !important;
+    margin-top: 0.15rem !important;
+    box-shadow: 0 2px 6px rgba(255, 179, 0, 0.3) !important;
+    white-space: nowrap !important;
+  }
+
+  /* Perks Strip */
+  .mob-perks-section {
+    margin-bottom: 1.5rem !important;
+    padding: 0 !important;
+  }
+
+  .mob-perks-strip {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    background: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    padding: 0.65rem 0.4rem !important;
+    gap: 0.35rem !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .mob-perk-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 0.25rem !important;
+    flex: 1 !important;
+    min-width: 62px !important;
+  }
+
+  .mob-perk-ico {
+    font-size: 1.1rem !important;
+    color: #0284c7 !important;
+  }
+
+  .mob-perk-item span {
+    font-size: 0.56rem !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    line-height: 1.15 !important;
+  }
+
+  /* Why Choose Us on Mobile */
+  .mob-why-choose-section {
+    margin-bottom: 1.5rem !important;
+    padding: 0 !important;
+  }
+
+  .mob-why-choose-card {
+    background: #ffffff !important;
+    border-radius: 16px !important;
+    border: 1px solid #e2e8f0 !important;
+    padding: 1.1rem 0.85rem !important;
+    box-shadow: 0 4px 16px rgba(6, 36, 95, 0.06) !important;
+  }
+
+  .mob-why-choose-title {
+    font-size: 1.1rem !important;
+    font-weight: 800 !important;
+    color: #06245f !important;
+    text-align: center !important;
+    margin: 0 0 0.25rem 0 !important;
+  }
+
+  .mob-why-choose-underline {
+    width: 55px !important;
+    height: 3px !important;
+    background: #ffb300 !important;
+    margin: 0 auto 0.9rem !important;
+    border-radius: 2px !important;
+  }
+
+  .mob-why-choose-content {
+    display: grid !important;
+    grid-template-columns: 1.25fr 0.75fr !important;
+    gap: 0.65rem !important;
+    align-items: center !important;
+  }
+
+  .mob-why-checkmarks {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.55rem !important;
+  }
+
+  .mob-check-row {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.4rem !important;
+    font-size: 0.7rem !important;
+    font-weight: 700 !important;
+    color: #1e293b !important;
+    line-height: 1.2 !important;
+  }
+
+  .mob-check-box {
+    color: #16a34a !important;
+    font-size: 0.95rem !important;
+    display: flex !important;
+    align-items: center !important;
+    flex-shrink: 0 !important;
+  }
+
+  .mob-diamond-collage {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    height: 95px !important;
+  }
+
+  .mob-diamond-item {
+    position: absolute !important;
+    width: 48px !important;
+    height: 48px !important;
+    transform: rotate(45deg) !important;
+    overflow: hidden !important;
+    border-radius: 6px !important;
+    border: 2px solid #ffffff !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  .mob-diamond-item img {
+    width: 145% !important;
+    height: 145% !important;
+    object-fit: cover !important;
+    transform: rotate(-45deg) scale(1.25) !important;
+    display: block !important;
+  }
+
+  .mob-diamond-item.diamond-1 {
+    left: 2px !important;
+    z-index: 1 !important;
+  }
+
+  .mob-diamond-item.diamond-2 {
+    left: 28px !important;
+    z-index: 2 !important;
+    width: 54px !important;
+    height: 54px !important;
+    border-color: #ffb300 !important;
+  }
+
+  .mob-diamond-item.diamond-3 {
+    right: 2px !important;
+    z-index: 1 !important;
+  }
+
+  /* Testimonial Card */
+  .mob-testimonial-section {
+    margin-bottom: 1.35rem !important;
+    padding: 0 !important;
+  }
+
+  .mob-testimonial-card {
+    background: linear-gradient(135deg, #031538 0%, #06245f 100%) !important;
+    border-radius: 16px !important;
+    padding: 1rem 0.85rem !important;
+    color: #ffffff !important;
+    box-shadow: 0 6px 20px rgba(6, 36, 95, 0.22) !important;
+    border: 1px solid rgba(255, 179, 0, 0.3) !important;
+  }
+
+  .mob-quote-header {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.45rem !important;
+    margin-bottom: 0.55rem !important;
+  }
+
+  .mob-quote-gold-icon {
+    font-size: 1.15rem !important;
+    color: #ffb300 !important;
+  }
+
+  .mob-quote-header h4 {
+    font-size: 0.92rem !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    margin: 0 !important;
+  }
+
+  .mob-testimonial-inner {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.65rem !important;
+  }
+
+  .mob-avatar-wrap {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    border: 2px solid #ffb300 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .mob-avatar-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .mob-testimonial-text p {
+    font-size: 0.7rem !important;
+    font-style: italic !important;
+    color: #e2e8f0 !important;
+    line-height: 1.35 !important;
+    margin: 0 0 0.25rem !important;
+  }
+
+  .mob-testimonial-text cite {
+    font-size: 0.68rem !important;
+    font-weight: 700 !important;
+    color: #ffb300 !important;
+    display: block !important;
+    font-style: normal !important;
+  }
+
+  /* Ribbon */
+  .mob-plan-ribbon-section {
+    margin-bottom: 2rem !important;
+    padding: 0 !important;
+  }
+
+  .mob-plan-ribbon {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.55rem !important;
+    background: linear-gradient(90deg, #f59e0b 0%, #ffc107 100%) !important;
+    color: #06245f !important;
+    padding: 0.72rem 1rem !important;
+    border-radius: 12px !important;
+    text-decoration: none !important;
+    font-weight: 800 !important;
+    font-size: 0.85rem !important;
+    box-shadow: 0 4px 14px rgba(245, 158, 11, 0.3) !important;
+  }
+
+  .mob-ribbon-plane-icon {
+    font-size: 1.05rem !important;
+    color: #06245f !important;
+    transform: rotate(-15deg) !important;
+  }
+
+  /* ================= 5. STICKY BOTTOM MOBILE ACTION BAR ================= */
+  .mobile-fixed-bottom-bar {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 9999 !important;
+    background: #031538 !important;
+    padding: 0.45rem 0.55rem !important;
+    box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.35) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+    gap: 0.35rem !important;
+  }
+
+  .mob-fixed-btn {
+    flex: 1 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.3rem !important;
+    padding: 0.52rem 0.35rem !important;
+    border-radius: 9999px !important;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    transition: transform 0.15s ease !important;
+  }
+
+  .mob-fixed-btn:active {
+    transform: scale(0.96) !important;
+  }
+
+  .mob-btn-green {
+    background: #25d366 !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(37, 211, 102, 0.4) !important;
+  }
+
+  .mob-btn-navy {
+    background: #0284c7 !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(2, 132, 199, 0.35) !important;
+  }
+
+  .mob-btn-yellow {
+    background: #ffb300 !important;
+    color: #06245f !important;
+    box-shadow: 0 2px 8px rgba(255, 179, 0, 0.35) !important;
+  }
+
+  .mob-fixed-btn-icon {
+    font-size: 0.85rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  .mob-fixed-btn-top {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 50% !important;
+    background: #1e293b !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 0.85rem !important;
+    cursor: pointer !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Hide redundant desktop items on mobile */
+  .floaters-bottom-left,
+  .floaters-bottom-right,
+  .service-cards-grid,
+  .perks-strip.glass-card,
+  .why-us-grid {
+    display: none !important;
+  }
+
+  /* Ensure padding-bottom on body so fixed mobile bar does not occlude footer */
+  body {
+    padding-bottom: 60px !important;
   }
 }
 

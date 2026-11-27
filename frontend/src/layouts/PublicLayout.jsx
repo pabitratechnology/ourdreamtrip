@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 import {Outlet,useLocation,Link} from 'react-router-dom';
 import {motion} from 'framer-motion';
-import {FaWhatsapp,FaPhoneAlt,FaArrowUp} from 'react-icons/fa';
+import {FaWhatsapp,FaPhoneAlt,FaArrowUp,FaEnvelope} from 'react-icons/fa';
 import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.jsx';
 import Breadcrumbs from '../components/Breadcrumbs.jsx';
@@ -87,6 +87,48 @@ export default function PublicLayout(){
         >
           <FaWhatsapp/>
         </a>
+      </div>
+
+      {/* Fixed Sticky Mobile Bottom Action Bar (Image 1 Match - ONLY ON MOBILE) */}
+      <div className="mobile-fixed-bottom-bar" aria-label="Quick Mobile Actions">
+        <a
+          href={`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent("Hello! I want to plan an Odisha / India tour.")}`}
+          target="_blank"
+          rel="noreferrer"
+          className="mob-fixed-btn mob-btn-green"
+          aria-label="Chat on WhatsApp"
+        >
+          <FaWhatsapp className="mob-fixed-btn-icon"/>
+          <span>Chat on WhatsApp</span>
+        </a>
+
+        <a
+          href={`tel:${CONTACT.tel}`}
+          className="mob-fixed-btn mob-btn-navy"
+          aria-label="Call Now"
+        >
+          <FaPhoneAlt className="mob-fixed-btn-icon"/>
+          <span>Call Now</span>
+        </a>
+
+        <a
+          href={`mailto:${CONTACT.email}`}
+          className="mob-fixed-btn mob-btn-yellow"
+          aria-label="Send Email"
+        >
+          <FaEnvelope className="mob-fixed-btn-icon"/>
+          <span>Send Email</span>
+        </a>
+
+        <button
+          type="button"
+          className="mob-fixed-btn-top"
+          aria-label="Back to top"
+          title="Back to top"
+          onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
+        >
+          <FaArrowUp/>
+        </button>
       </div>
     </>
   );

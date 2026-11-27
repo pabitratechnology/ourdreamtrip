@@ -226,6 +226,13 @@ export default function Home(){
           <div className="hero-ambient-glow" />
         </div>
 
+        {/* Mobile Direct Tap Link on "Explore Our Packages ->" (Only visible on mobile via CSS) */}
+        <Link
+          to="/odisha-tour-packages"
+          className="mobile-hero-touch-link"
+          aria-label="Explore Our Packages"
+        />
+
         {/* Quick Navigation Arrows (Desktop) */}
         <button
           type="button"
@@ -316,6 +323,154 @@ export default function Home(){
           <SearchPanel/>
         </div>
       </section>
+
+      {/* ================= MOBILE-SPECIFIC HOMEPAGE FLOW (EXACT MATCH FOR REFERENCE IMAGES - ONLY ON MOBILE) ================= */}
+      <div className="home-mobile-only-flow">
+        {/* 1. Top 3 Action Cards directly below Search */}
+        <section className="mob-action-cards-section container">
+          <div className="mob-action-cards-grid">
+            <Link to="/odisha-tour-packages" className="mob-action-card">
+              <div className="mob-action-card-img-wrap">
+                <img src="/images/pkg-golden-triangle.jpg" alt="Odisha Tour Packages" />
+              </div>
+              <div className="mob-action-card-body">
+                <h4>Odisha Tour Packages</h4>
+                <p>Explore the Land of Heritage &amp; Spirituality</p>
+                <span className="mob-action-btn-pill">
+                  View Packages &rarr;
+                </span>
+              </div>
+            </Link>
+
+            <Link to="/domestic-tour-packages" className="mob-action-card">
+              <div className="mob-action-card-img-wrap">
+                <img src="/images/dest-charminar.jpg" alt="Domestic Tour Packages" />
+              </div>
+              <div className="mob-action-card-body">
+                <h4>Domestic Tour Packages</h4>
+                <p>Discover the Incredible India</p>
+                <span className="mob-action-btn-pill">
+                  View Packages &rarr;
+                </span>
+              </div>
+            </Link>
+
+            <Link to="/car-rental" className="mob-action-card">
+              <div className="mob-action-card-img-wrap">
+                <img src="/images/vehicle-innova-crysta.jpg" alt="Car Rental Services" />
+              </div>
+              <div className="mob-action-card-body">
+                <h4>Car Rental Services</h4>
+                <p>Travel with Comfort &amp; Safety</p>
+                <span className="mob-action-btn-pill">
+                  Book Now &rarr;
+                </span>
+              </div>
+            </Link>
+          </div>
+        </section>
+
+        {/* 2. Perks Strip (Horizontal Icons) */}
+        <section className="mob-perks-section container">
+          <div className="mob-perks-strip">
+            <div className="mob-perk-item">
+              <FaShieldAlt className="mob-perk-ico text-blue"/>
+              <span>Safe &amp; Secure Travel</span>
+            </div>
+            <div className="mob-perk-item">
+              <FaHeadset className="mob-perk-ico text-blue"/>
+              <span>24x7 Customer Support</span>
+            </div>
+            <div className="mob-perk-item">
+              <FaMapMarkerAlt className="mob-perk-ico text-blue"/>
+              <span>Customized Tour Packages</span>
+            </div>
+            <div className="mob-perk-item">
+              <FaCarSide className="mob-perk-ico text-blue"/>
+              <span>Premium Fleet Vehicles</span>
+            </div>
+            <div className="mob-perk-item">
+              <FaHandshake className="mob-perk-ico text-blue"/>
+              <span>Best Price Guarantee</span>
+            </div>
+          </div>
+        </section>
+
+        {/* 3. Why Choose Travels With Odisha ? */}
+        <section className="mob-why-choose-section container">
+          <div className="mob-why-choose-card">
+            <h3 className="mob-why-choose-title">
+              Why Choose Travels With Odisha ?
+            </h3>
+            <div className="mob-why-choose-underline" />
+
+            <div className="mob-why-choose-content">
+              <div className="mob-why-checkmarks">
+                <div className="mob-check-row">
+                  <span className="mob-check-box"><FaCheckCircle/></span>
+                  <span>Expert Travel Planners</span>
+                </div>
+                <div className="mob-check-row">
+                  <span className="mob-check-box"><FaCheckCircle/></span>
+                  <span>Special Odisha &amp; India Packages</span>
+                </div>
+                <div className="mob-check-row">
+                  <span className="mob-check-box"><FaCheckCircle/></span>
+                  <span>Comfortable &amp; Reliable Travel</span>
+                </div>
+                <div className="mob-check-row">
+                  <span className="mob-check-box"><FaCheckCircle/></span>
+                  <span>Memorable Travel Experiences</span>
+                </div>
+              </div>
+
+              {/* Diamond Collage */}
+              <div className="mob-diamond-collage">
+                <div className="mob-diamond-item diamond-1">
+                  <img src="/images/hero-konark-golden-temple.jpg" alt="Konark Sun Temple" />
+                </div>
+                <div className="mob-diamond-item diamond-2">
+                  <img src="/images/hero-chilika-lake-lagoon.jpg" alt="Chilika Lake" />
+                </div>
+                <div className="mob-diamond-item diamond-3">
+                  <img src="/images/hero-puri-golden-beach.jpg" alt="Puri Temple" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 4. Customer Testimonial Card */}
+        <section className="mob-testimonial-section container">
+          <div className="mob-testimonial-card">
+            <div className="mob-quote-header">
+              <FaQuoteRight className="mob-quote-gold-icon"/>
+              <h4>What Our Customers Say</h4>
+            </div>
+            <div className="mob-testimonial-inner">
+              <div className="mob-avatar-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80"
+                  alt="Rajesh Kumar"
+                  className="mob-avatar-img"
+                />
+              </div>
+              <div className="mob-testimonial-text">
+                <p>&ldquo;Travels With Odisha made our trip truly memorable. Excellent service and very professional team!&rdquo;</p>
+                <cite>&mdash; Rajesh Kumar, Kolkata</cite>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 5. Golden CTA Ribbon */}
+        <section className="mob-plan-ribbon-section container">
+          <Link to="/book-your-trip" className="mob-plan-ribbon">
+            <span className="mob-plan-ribbon-text">Let&apos;s Plan Your Next Journey Together...</span>
+            <FaPaperPlane className="mob-ribbon-plane-icon" />
+          </Link>
+        </section>
+      </div>
 
       {/* ================= EXPLORE CATEGORY HORIZONTAL BANNERS (Image 3) ================= */}
       <ExploreBanners/>
